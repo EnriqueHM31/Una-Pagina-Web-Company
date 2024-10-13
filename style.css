@@ -1,0 +1,1112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    user-select: none;
+}
+
+:root {
+    --colornegro: #000;
+    --colorwhite: #fff;
+    --colorazul1: rgb(25, 38, 48);
+    --colorazul2: rgb(51, 83, 108);
+    --colorbanner: rgb(7, 23, 32);
+    --orange: rgb(255, 85, 0);
+}
+
+html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(180deg, var(--colornegro), var(--colorazul1));
+}
+
+::after,
+::before {
+    position: absolute;
+    content: '';
+}
+
+h1,
+h2,
+h3,
+span {
+    font-family: Tsukimi;
+}
+
+p,
+a {
+    font-family: Poppins;
+    font-weight: 900;
+}
+
+article {
+    font-family: Hand;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100dvh;
+    overflow: hidden;
+}
+
+/*                  ESTILO DE LA BARRA DE NAVEGACION                        */
+.navegacion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    padding: 2rem 5rem;
+    width: 100%;
+    z-index: 100;
+    animation: barraNavegacion 2.5s ease-in-out;
+}
+
+.logo_img {
+    max-width: 14rem;
+    transition: filter 1s;
+}
+
+.logo_img:hover {
+    filter: grayscale(1);
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.link {
+    color: var(--colorwhite);
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+    padding: 1rem 2rem;
+    transition: scale, transform 1s;
+    position: relative;
+}
+
+.link:hover {
+    scale: 1.1;
+    transform: translateY(-1rem);
+}
+
+.link::after {
+    width: 100%;
+    height: .2rem;
+    background: var(--orange);
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 1s;
+}
+
+.link:hover::after {
+    transform: scaleX(1);
+}
+
+.container_icono-menu,
+.container_cerrar-menu {
+    display: none;
+}
+
+.icono_menu,
+.cerrar_menu {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    color: var(--colorwhite);
+    display: flex;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+}
+
+/* ******************** ESTILO DEL CONTENIDO DEL HEADER ******************** */
+.introduccion {
+    background: var(--orange);
+    color: var(--colorwhite);
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+    animation: animationHeader 2s linear;
+}
+
+.contenido_header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.titulo_pagina {
+    color: var(--colorwhite);
+    font-size: clamp(1.2rem, 5vw, 5rem);
+    letter-spacing: .3rem;
+    max-width: max(15rem, 70rem);
+    text-align: center;
+    animation: animationHeader 2s .3s linear;
+}
+
+.descripcion_header {
+    font-size: clamp(1rem, 2vw, 2rem);
+    width: max(50%, 80%);
+    text-align: center;
+    color: var(--orange);
+    letter-spacing: .3rem;
+    line-height: 1.5;
+    animation: animationHeader 2s .6s linear;
+}
+
+.btn_header {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    background: var(--orange);
+    color: var(--colorwhite);
+    font-weight: bold;
+    border: .2rem solid var(--colorwhite);
+    cursor: pointer;
+    transition: scale 1s, background 1s, border-color 1s, color 1s;
+    animation: animationHeader 2s .9s linear;
+}
+
+.btn_header:hover {
+    scale: .9;
+    background: var(--colorwhite);
+    border-color: var(--orange);
+    color: var(--orange);
+}
+
+/* ******************** ESTILO DEL CONTENIDO DE LA SECCION DIAGRAMA ******************** */
+.diagrama {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    position: relative;
+    overflow: hidden;
+    view-timeline-name: --seccion_diagrama;
+}
+
+.container_muestra {
+    display: flex;
+    align-items: center;
+    padding: 3rem;
+}
+
+.header_diagrama {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: max(80%, 90%);
+    color: var(--colorwhite);
+    padding: 1rem 4rem;
+    animation: deslizarIzquierda both alternate;
+    animation-range: entry 20% cover 30%;
+    animation-timeline: --seccion_diagrama;
+}
+
+.container_diagrama-muestra {
+    width: max(12rem, 23rem);
+    height: max-content;
+    background-color: var(--colornegro);
+    border-radius: 2rem;
+    border: .1rem solid var(--colorwhite);
+    box-shadow: -.5rem .4rem 1rem var(--colorwhite);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: background-color 1s;
+}
+
+.container_diagrama-muestra:hover {
+    background-color: var(--orange);
+    color: var(--colorwhite);
+}
+
+.botones_diagrama {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn_diagrama {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    position: relative;
+    background: rgb(37, 39, 39);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn_diagrama-orange {
+    background-color: var(--orange);
+    color: var(--colorwhite);
+}
+
+.btn_diagrama i {
+    color: var(--colorwhite);
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img_diagrama {
+    background: url(img/img_diagrama.webp), no-repeat, center;
+    background-size: cover;
+    width: max(80%, 90%);
+    height: max(10rem, 50rem);
+    animation: deslizarArriba both alternate;
+    animation-range: entry 20% cover 40%;
+    animation-timeline: --seccion_diagrama;
+}
+
+.banner {
+    width: max(10rem, 18rem);
+    height: max(10rem, 18rem);
+    border: .1rem solid var(--colorwhite);
+    border-radius: 2rem;
+    background-color: var(--colorbanner);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    position: absolute;
+    transition: background 1s;
+    cursor: pointer;
+}
+
+.banner_security {
+    top: 20%;
+    right: 5%;
+    animation: deslizarDerecha both alternate;
+    animation-range: entry 20% cover 40%;
+    animation-timeline: --seccion_diagrama;
+}
+
+.banner_cloud {
+    top: 45%;
+    left: 10%;
+    animation: deslizarIzquierda both alternate;
+    animation-range: entry 20% cover 40%;
+    animation-timeline: --seccion_diagrama;
+}
+
+.banner i {
+    width: max(4rem, 7rem);
+    height: max(4rem, 7rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    border: .1rem solid var(--colorwhite);
+    font-size: clamp(2rem, 4vw, 4rem);
+    color: var(--colorwhite);
+    box-shadow: 0 0 2rem var(--colorwhite), 0 0 1rem var(--colorwhite);
+    transition: color, box-shadow, 1s;
+}
+
+.txt_banner {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    color: var(--colorwhite);
+    transition: color 1s;
+}
+
+.banner:hover {
+    background: linear-gradient(var(--colorwhite) 20%, transparent);
+
+    & i {
+        color: var(--colorbanner);
+        border-color: var(--colorbanner);
+        box-shadow: 0 0 2rem var(--colorbanner);
+    }
+
+    & .txt_banner {
+        color: var(--colorbanner);
+    }
+}
+
+/* ******************** ESTILO DEL CONTENIDO DE LA SECCION COMPANYS ******************** */
+.nombres_company {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 5rem 0;
+    view-timeline-name: --seccion_companys;
+}
+
+.title_company {
+    font-size: clamp(2rem, 5vw, 7rem);
+    color: var(--colorwhite);
+    text-shadow: 0 0 1rem var(--colornegro), 0 0 2rem var(--colorwhite);
+    animation: scale linear alternate;
+    animation-timeline: --seccion_companys;
+    animation-range: entry 0% cover 40%;
+}
+
+.descripcion_company {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    color: var(--orange);
+    margin-bottom: 3rem;
+    animation: opacidad linear alternate;
+    animation-timeline: --seccion_companys;
+    animation-range: entry 0% cover 70%;
+}
+
+.companys {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: max(60%, 80%);
+    animation: deslizarArriba linear alternate;
+    animation-timeline: --seccion_companys;
+    animation-range: entry 0% cover 40%;
+}
+
+.nombre_empresa {
+    color: var(--colorwhite);
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    cursor: pointer;
+    padding: .5rem 1.5rem;
+    position: relative;
+}
+
+.nombre_empresa::after {
+    inset: 0;
+    background: var(--orange);
+    z-index: -1;
+    border-radius: 2rem;
+    top: 100%;
+    transition: top 1s;
+}
+
+.nombre_empresa:hover::after {
+    top: 0;
+}
+
+/* ******************** ESTILO DEL CONTENIDO DE LA SECCION TRABAJOS ******************** */
+.seccion_trabajo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+    gap: 4rem;
+    padding: 5rem 0;
+    view-timeline-name: --seccion_trabajos;
+}
+
+.introduccion_trabajo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.titulo_introduccion-trabajo {
+    font-size: clamp(3.5rem, 4vw, 5rem);
+    color: var(--orange);
+    animation: deslizarArriba linear alternate;
+    animation-timeline: --seccion_trabajos;
+    animation-range: entry -200% cover 20%;
+}
+
+.descripcion_introduccion-trabajo {
+    max-width: 80%;
+    font-size: clamp(1rem, 4vw, 1.8rem);
+    color: var(--colorwhite);
+    text-align: center;
+    letter-spacing: .3rem;
+    line-height: 1.5;
+    animation: deslizarArriba linear alternate;
+    animation-timeline: --seccion_trabajos;
+    animation-range: entry -20% cover 20%;
+}
+
+.trabajos {
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    grid-template-rows: auto auto;
+    width: 85%;
+    gap: 2rem;
+    cursor: pointer;
+}
+
+.trabajo {
+    width: 100%;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--colornegro);
+    border-radius: 2rem;
+    color: var(--colorwhite);
+    gap: 3rem;
+    transition: scale 1s, box-shadow 1s;
+    animation: deslizarArriba linear alternate;
+    animation-timeline: --seccion_trabajos;
+    animation-range: entry 00% cover 30%;
+}
+
+.trabajo:nth-child(2) {
+    grid-column: 2 / 4;
+}
+
+.trabajo:nth-child(3) {
+    grid-column: 1 / 3;
+}
+
+.titulo_trabajo {
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    color: var(--orange);
+}
+
+.descripcion_trabajo {
+    font-size: clamp(.8rem, 3vw, 1.4rem);
+    line-height: 1.5;
+    letter-spacing: .3rem;
+    font-weight: 100;
+}
+
+.trabajo img {
+    flex: auto;
+    object-fit: cover;
+}
+
+.trabajo:hover {
+    box-shadow: 0 0 6rem var(--orange);
+    scale: .8;
+}
+
+
+/* ******************** ESTILO DEL CONTENIDO DE LA SECCION POR QUE NUESTRA COMPAÑIA ******************** */
+.seccion_importancia-company {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 5rem 0;
+    view-timeline-name: --seccion_importancia;
+}
+
+.title_importancia {
+    font-size: clamp(2rem, 4vw, 6rem);
+    color: var(--orange);
+    animation: deslizarArriba linear alternate;
+    animation-timeline: --seccion_importancia;
+    animation-range: entry -10% cover 30%;
+}
+
+.descripcion_importancia {
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    color: var(--colorwhite);
+    max-width: 80%;
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: opacidad linear alternate;
+    animation-timeline: --seccion_importancia;
+    animation-range: entry -10% cover 40%;
+}
+
+.cards_importancia {
+    max-width: 90%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    z-index: 10;
+    animation: deslizarDerecha linear alternate;
+    animation-timeline: --seccion_importancia;
+    animation-range: entry 10% cover 40%;
+}
+
+.card_importancia {
+    border-radius: 2rem;
+    border: .1rem solid var(--orange);
+    background-color: var(--colorazul1);
+    cursor: pointer;
+    position: relative;
+}
+
+.card_atras,
+.card_frente {
+    backface-visibility: hidden;
+    transition: transform 1s;
+    width: 100%;
+    height: 100%;
+    padding: 3.5rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.card_frente {
+    transform: perspective(1200px) rotateY(0deg);
+    background-color: var(--colorwhite);
+}
+
+.card_atras {
+    position: absolute;
+    top: 0;
+    transform: perspective(1200px) rotateY(180deg);
+    background: linear-gradient(var(--orange), transparent 80%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card_importancia i {
+    font-size: clamp(2rem, 4vw, 6rem);
+    color: var(--colorwhite);
+    width: 9rem;
+    height: 9rem;
+    background: transparent;
+    border-radius: 50%;
+    border: .1rem solid var(--colorwhite);
+    display: grid;
+    place-items: center;
+}
+
+.titulo_card-atras {
+    font-size: clamp(2rem, 4vw, 5rem);
+    color: var(--colorwhite);
+}
+
+
+.card_importancia:hover .card_atras {
+    transform: perspective(90rem) rotateY(360deg);
+}
+
+.card_importancia:hover .card_frente {
+    transform: perspective(90rem) rotateY(180deg);
+}
+
+.numero_card-importancia {
+    font-size: clamp(2rem, 4vw, 3rem);
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    background: var(--orange);
+    color: var(--colorwhite);
+    display: grid;
+    place-content: center;
+}
+
+.titulo_card-importancia {
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.txt_card-importancia {
+    font-size: clamp(1.5rem, 4vw, 1.5rem);
+    text-align: justify;
+}
+
+/* ******************** ESTILO DEL CONTENIDO DE LA SECCION ALBUM ******************** */
+.album {
+    min-height: 100dvh;
+    view-timeline-name: --seccion_album;
+    background: var(--colorazul2);
+    background: linear-gradient(270deg, var(--colorazul2) 10%, var(--colorazul1) 40%, var(--colornegro) 100%);
+    background-size: 300% 100%;
+    animation: gradient 5s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor_album {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 30%));
+    grid-template-rows: repeat(auto-fit, minmax(10rem, 50%));
+    padding: 5rem;
+    gap: 1rem;
+    width: 80%;
+    height: 80%;
+}
+
+.titulo_album {
+    font-size: clamp(2rem, 4vw, 3rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    width: 100%;
+    color: var(--colorwhite);
+    text-align: center;
+}
+
+.img_album {
+    border-radius: 2rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s, box-shadow 1s;
+    cursor: pointer;
+}
+
+/* ******************** ESTILO DEL CONTENIDO DEL FOOTER ******************** */
+.footer {
+    min-height: 60dvh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+    grid-template-rows: repeat(2, 1fr);
+    width: 80%;
+    place-content: center;
+    margin: auto;
+    padding: 5rem 0;
+}
+
+.redes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: var(--colorwhite);
+    gap: 3rem;
+}
+
+.red {
+    font-size: clamp(2rem, 4vw, 3rem);
+    display: flex;
+    gap: 3rem;
+    justify-content: space-between;
+    width: 20rem;
+}
+
+.red i {
+    width: 4rem;
+    height: 4rem;
+    display: grid;
+    place-items: center;
+}
+
+.red_link {
+    color: var(--orange);
+}
+
+.formulario {
+    grid-row: 1/ 3;
+    grid-column: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.formulario h2 {
+    font-size: clamp(2rem, 4vw, 4rem);
+    color: var(--orange);
+    text-shadow: 0 0 2rem var(--colornegro), 0 0 3rem var(--orange);
+}
+
+.elemento_form {
+    font-size: clamp(1.2rem, 3vw, 1.7rem);
+    width: 80%;
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    outline: .1rem solid var(--colorwhite);
+    background: transparent;
+    color: var(--colorwhite);
+    cursor: pointer;
+}
+
+.elemento_form:focus {
+    outline: .2rem solid var(--orange);
+}
+
+.contenedor_input {
+    position: relative;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.nombre_inputs {
+    font-size: clamp(1.2rem, 4vw, 1.7rem);
+    position: absolute;
+    top: 9%;
+    left: 16%;
+    color: var(--colorwhite);
+    background: var(--colorazul1);
+    padding: 0 2rem;
+    transition: transform 1s, scale 1s;
+}
+
+.elemento_form:focus:placeholder-shown~.nombre_inputs {
+    transform: translateY(-3rem) translateX(-2rem);
+    scale: .7;
+}
+
+.elemento_form:not(:placeholder-shown)~.nombre_inputs {
+    transform: translateY(-3rem) translateX(-2rem);
+    scale: .7;
+}
+
+.elemento_form:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px var(--colorazul1) inset;
+    -webkit-text-fill-color: var(--colorwhite);
+}
+
+.textarea {
+    resize: none;
+}
+
+.btn_formulario {
+    padding: 1rem 2rem;
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    border: none;
+    background: var(--orange);
+    color: var(--colorwhite);
+    border-radius: 2rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.informacion_opcional {
+    font-size: clamp(1rem, 5vw, 1.5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+    color: var(--colorwhite);
+    gap: 2rem;
+}
+
+.informacion_opcional span {
+    color: var(--orange);
+}
+
+.informacion_opcional hr {
+    width: 90%;
+    border: .1rem solid var(--orange);
+}
+
+
+
+
+
+
+/* ******************** ESTILO DEL CONTENIDO PARA LA MEDIA EN TABLET ******************** */
+@media (max-width: 850px) {
+
+    /*EDICION PARA EL HEADER*/
+    .logo {
+        z-index: 10;
+    }
+
+    .container_icono-menu,
+    .container_cerrar-menu {
+        display: flex;
+        z-index: 10;
+    }
+
+    .container_cerrar-menu {
+        display: none;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        padding: 2rem;
+        background: var(--colornegro);
+        width: 100%;
+        height: fit-content;
+        z-index: 5;
+    }
+
+    .aparecer {
+        display: flex;
+    }
+
+    .desaparecer {
+        display: none;
+    }
+
+    /*EDICION PARA LA SECCION DIAGRAMA*/
+    .header_diagrama {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(50%, 1fr));
+        grid-template-rows: repeat(2, minmax(10rem, 1fr));
+        place-content: center;
+        column-gap: 4rem;
+    }
+
+    .container_diagrama-muestra {
+        width: 100%;
+    }
+
+    .banner {
+        position: inherit;
+    }
+
+    .banner_security {
+        right: 20%;
+    }
+
+    .banner_cloud {
+        left: 20%;
+    }
+
+    /*EDICION PARA LA SECCION COMPANYS*/
+
+    .descripcion_company {
+        width: 80%;
+        text-align: center;
+    }
+
+    .companys {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .nombre_empresa {
+        width: 22rem
+    }
+
+    /*EDICION PARA LA SECCION TRABAJOS*/
+
+    .trabajos {
+        width: 90%;
+        grid-template-columns: repeat(2, 45%);
+        place-content: center;
+    }
+
+    .trabajo:nth-child(2) {
+        grid-column: initial;
+    }
+
+    .trabajo:nth-child(3) {
+        grid-column: initial;
+    }
+
+    /*EDICION PARA LA SECCION POR QUE NUESTRA COMPAÑIA*/
+    .cards_importancia {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 45%);
+        place-content: center;
+    }
+
+    .card_importancia:last-child {
+        grid-column: 1 / 3;
+    }
+
+    /*EDICION PARA LA SECCION ALBUM*/
+    .contenedor_album {
+        grid-template-columns: 1fr 1fr;
+        width: 95%;
+    }
+
+}
+
+
+/* ******************** ESTILO DEL CONTENIDO PARA LA MEDIA EN CELULARES ******************** */
+@media (max-width: 500px) {
+
+    /*EDICION PARA EL HEADER*/
+    .navegacion {
+        padding: 2rem 1rem;
+    }
+
+    .menu {
+        width: 100%;
+        height: 100%;
+    }
+
+    /*EDICION PARA LA SECCION DIAGRAMA*/
+    .header_diagrama {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        gap: 2rem;
+    }
+
+    .img_diagrama {
+        max-height: 20rem;
+    }
+
+    /*EDICION PARA LA SECCION TRABAJOS*/
+    .trabajos {
+        grid-template-columns: 90%;
+    }
+
+    /*EDICION PARA LA SECCION POR QUE NUESTRA COMPAÑIA*/
+    .cards_importancia {
+        grid-template-columns: max(80%, 100%);
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    .card_importancia:last-child {
+        grid-column: initial;
+    }
+
+    /*EDICION PARA LA SECCION ALBUM*/
+    .contenedor_album {
+        grid-template-columns: 1fr;
+    }
+
+    .titulo_album {
+        grid-row: 6 / 7;
+    }
+
+    /*EDICION PARA LA SECCION FOOTER*/
+    .footer {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .elemento_form {
+        padding: 2rem;
+    }
+
+    .nombre_inputs {
+        padding: .5rem 1rem;
+    }
+
+}
+
+@keyframes barraNavegacion {
+    from {
+        translate: 0 -15rem 0;
+        scale: .4;
+    }
+
+    to {
+        translate: 0;
+        scale: 1;
+    }
+}
+
+@keyframes animationHeader {
+    from {
+        translate: 0 20rem 0;
+        opacity: 0;
+    }
+
+    to {
+        translate: 0;
+        opacity: 1;
+    }
+
+}
+
+@keyframes desplazarMenu {
+    from {
+        translate: 0 -5rem 0;
+        opacity: 0;
+    }
+
+    to {
+        translate: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes deslizarIzquierda {
+    from {
+        transform: translateX(-70rem);
+        opacity: 0;
+        scale: .1;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes deslizarDerecha {
+    from {
+        transform: translateX(70rem);
+        opacity: 0;
+        scale: .1;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes deslizarArriba {
+    from {
+        transform: translateY(70rem);
+        opacity: 0;
+        scale: .1;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes scale {
+    from {
+        scale: .2;
+    }
+
+    to {
+        scale: 1;
+    }
+}
+
+@keyframes opacidad {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+}
